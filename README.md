@@ -81,7 +81,7 @@ agent-starter-pack setup-cicd --cicd-project [CI/CD 를 수행할 프로젝트ID
 #### 2. Workbench 터미널을 진입 후 아래의 명령어로 실습자료를 다운받습니다.
 
 ```
-git clone https://github.com/jk1333/agent-engine-test
+git clone https://github.com/cheeunlim/agent-engine-lab
 ```
 
 #### 3. 실습 자료가 다운되면 아래의 명령어로 예제 에이전트를 Agent Engine 으로 배포합니다.
