@@ -92,6 +92,8 @@ cd agent-engine-lab
 make backend
 ```
 
+## 🏁: Task Part 1
+
 #### 4. 배포가 완료되면 아래 그림과 같이 화면이 표시됩니다. Agent Engine ID값을 아래 그림과 같이 확인 후 메모해 둡니다.
 
 ![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/2.png)
@@ -143,6 +145,8 @@ Session 3 예시: 다시 소고기 메뉴를 추천해 주세요.
 #### 12. Workbench 로 돌아와서 agentengine_evaluation.ipynb 를 수행합니다.
 
 (현재 이슈로 동작 안함)
+
+## 🏁: Part 2
 
 #### 13. Google Cloud 콘솔 검색 메뉴에서 "credentials" 혹은 "oauth" 를 검색하면 나오는 Credentials 를 클릭합니다.
 ![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/8.png)
