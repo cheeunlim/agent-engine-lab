@@ -156,6 +156,7 @@ Application type: Web application
 Name: Sample
 
 Authorized redirect URI 는 다음을 입력 후 Create합니다.
+
 ```
 https://vertexaisearch.cloud.google.com/oauth-redirect
 ```
