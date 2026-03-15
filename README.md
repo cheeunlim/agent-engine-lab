@@ -114,7 +114,9 @@ Authorized redirect URI 는 다음을 입력 후 Create합니다.
 ```
 https://vertexaisearch.cloud.google.com/oauth-redirect
 ```
-🚨 **Create를 누른 후 뜨는 팝업창이 뜰 때까지 반드시 대기합니다.** 해당 창이 닫힌 후 Client Secret 값을 다시 가져올 수 없으므로, 다시 새로 생성해야 합니다.
+
+#### 🚨 **Create를 누른 후 뜨는 팝업창이 뜰 때까지 반드시 대기합니다.** 
+해당 창이 닫힌 후 Client Secret 값을 다시 가져올 수 없으므로, Credential을 새로 생성해야 합니다.
 
 ![image](https://raw.githubusercontent.com/cheeunlim/agent-engine-lab/main/images/oauth_client.png)
 ***
