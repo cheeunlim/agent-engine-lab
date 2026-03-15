@@ -250,7 +250,7 @@ Authorize 버튼을 클릭해 접근 권한을 부여합니다.
 ![image](https://raw.githubusercontent.com/cheeunlim/agent-engine-lab/main/images/confirm_cal_event.png)
 <br>
 
-#### 20. [Google Calendar](calendar.google.com)에 접속하여 일정이 생성되었음을 확인합니다.
+#### 20. [Google Calendar](https://calendar.google.com/)에 접속하여 일정이 생성되었음을 확인합니다.
 
 ![image](https://raw.githubusercontent.com/cheeunlim/agent-engine-lab/main/images/google_cal.png)
 <br>
