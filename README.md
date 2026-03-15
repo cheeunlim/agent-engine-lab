@@ -136,11 +136,8 @@ Session 3 예시: 다시 소고기 메뉴를 추천해 주세요.
 
 #### 9. Dashboard, Traces, Sessions 메뉴를 클릭하며 기능들을 살펴보도록 합니다.
 
-#### 10. Workbench 로 돌아와서 agentengine_evaluation.ipynb 를 수행합니다.
 
-(현재 이슈로 동작 안함)
-
-#### 11. Google Cloud 콘솔 검색 메뉴에서 "credentials" 혹은 "oauth" 를 검색하면 나오는 Credentials 를 클릭합니다.
+#### 10. Google Cloud 콘솔 검색 메뉴에서 "credentials" 혹은 "oauth" 를 검색하면 나오는 Credentials 를 클릭합니다.
 ![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/8.png)
 ***
 <br>
@@ -163,7 +160,7 @@ https://vertexaisearch.cloud.google.com/oauth-redirect
 
 CLIENT_ID, CLIENT_SECRET 정보를 기록합니다.
 
-#### 12. 11에서 획득한 정보 및 Agent Engine 의 Resource Name을 Makefile 에 업데이트 합니다.
+#### 11. 10에서 획득한 정보 및 Agent Engine 의 Resource Name을 Makefile 에 업데이트 합니다.
 
 Jupyter Lab 에서 /agent-engine-test/Makefile 을 열고 아래의 정보를 확인 후 기록해둔 값으로 업데이트 합니다.
 
@@ -177,36 +174,36 @@ AGENT_ENGINE_RESOURCE_NAME := FULL_RESOURCE_NAME
 ***
 <br>
 
-#### 13. Google Cloud 콘솔에서 Gemini Enterprise 를 검색 후 메뉴로 진입합니다.
+#### 12. Google Cloud 콘솔에서 Gemini Enterprise 를 검색 후 메뉴로 진입합니다.
 
 ![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/11.png)
 ***
 <br>
 
-#### 14. Gemini Enterprise 메뉴의 Settings 로 진입하여 Authentication settings 부분에 global 설정메뉴 진입 후 Google Identity 를 설정합니다.
+#### 13. Gemini Enterprise 메뉴의 Settings 로 진입하여 Authentication settings 부분에 global 설정메뉴 진입 후 Google Identity 를 설정합니다.
 
 ![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/12.png)
 ***
 <br>
 
-#### 15. Apps를 클릭 후 기 생성돼 있는 agent-portal 을 클릭합니다. Connected data stores 를 클릭, New data store 를 클릭 후 Google Drive 를 Select 합니다. Default 값 및 임의의 name 을 지정 후 생성합니다.
+#### 14. Apps를 클릭 후 기 생성돼 있는 agent-portal 을 클릭합니다. Connected data stores 를 클릭, New data store 를 클릭 후 Google Drive 를 Select 합니다. Default 값 및 임의의 name 을 지정 후 생성합니다.
 
 ![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/13.png)
 ***
 
-#### 16. Jupyter Lab 의 Terminal 로 돌아와 아래의 명령어를 실행하여 에이전트를 Gemini Enterprise에 등록합니다.
+#### 15. Jupyter Lab 의 Terminal 로 돌아와 아래의 명령어를 실행하여 에이전트를 Gemini Enterprise에 등록합니다.
 
 ```
 make ge-register
 ```
 
-#### 17. Gemini Enterprise 를 실행합니다.
+#### 16. Gemini Enterprise 를 실행합니다.
 
 ![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/14.png)
 ***
 <br>
 
-#### 18. GE 메뉴에서 에이전트를 클릭, 에이전트와 대화합니다.
+#### 17. GE 메뉴에서 에이전트를 클릭, 에이전트와 대화합니다.
 
 ![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/15.png)
 ***
@@ -224,7 +221,7 @@ Authorize 버튼을 클릭합니다. 사용자의 Google Drive에 접근 권한�
 ***
 <br>
 
-#### 19. drive.google.com 에 들어가서 파일이 생성됐는지 확인합니다.
+#### 18. drive.google.com 에 들어가서 파일이 생성됐는지 확인합니다.
 
 ![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/18.png)
 ***
