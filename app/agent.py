@@ -24,6 +24,7 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 import os
 from google.genai import types
+from datetime import datetime
 
 os.environ["GOOGLE_CLOUD_LOCATION"] = "global"
 os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "True"
@@ -58,7 +59,7 @@ def upload_text_to_drive(tool_context: ToolContext, text_content: str) -> str:
         tool_context: The context object provided by the ADK framework.
         text_content: The string content to be saved in the text file.
     """
-    filename = str(uuid.uuid4()) + ".txt"
+    filename = f"{datetime.now().strftime("%Y%m%d-%H%M%S")}_{str(uuid.uuid4())}.txt"
 
     file_bytes = text_content.encode("utf-8")
     mime_type = "text/plain"
