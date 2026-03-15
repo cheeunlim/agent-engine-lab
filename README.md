@@ -75,7 +75,7 @@ agent-starter-pack setup-cicd --cicd-project [CI/CD 를 수행할 프로젝트ID
 
 # Qwiklab 실습
 
-### 📍 실습 Part 1
+## 📍 실습 Part 1
 
 아래 내용은 Qwiklab 환경에서 본 프로젝트를 배포하고 실행하는 과정을 설명합니다.
 
@@ -107,19 +107,20 @@ Create credentials -> OAuth client ID 를 클릭합니다.
 
 Application type: Web application
 
-Name: Sample
+Name: ge-cred (혹은 임의의 값)
 
 Authorized redirect URI 는 다음을 입력 후 Create합니다.
 
 ```
 https://vertexaisearch.cloud.google.com/oauth-redirect
 ```
+🚨 **Create를 누른 후 뜨는 팝업창이 뜰 때까지 반드시 대기합니다.** 해당 창이 닫힌 후 Client Secret 값을 다시 가져올 수 없으므로, 다시 새로 생성해야 합니다.
 
-![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/9.png)
+![image](https://raw.githubusercontent.com/cheeunlim/agent-engine-lab/main/images/oauth_client.png)
 ***
 <br>
 
-CLIENT_ID, CLIENT_SECRET 정보를 기록합니다.
+팝업 창의 CLIENT_ID, CLIENT_SECRET 값을 따로 기록하거나, Download JSON을 클릭해 파일로 저장합니다.
 
 #### 5. Google Cloud 콘솔에서 Gemini Enterprise 를 검색 후 메뉴로 진입합니다.
 
@@ -153,7 +154,7 @@ Connected data stores 를 클릭한 후, New data store > Google Calendar 를 �
 ***
 <br>
 
-### 📍 실습 Part 2
+## 📍 실습 Part 2
 
 #### 9. Google Cloud 콘솔의 좌측 메뉴에서 Agent Engine 을 클릭합니다.
 
@@ -189,7 +190,7 @@ Session 3 예시: 소고기 메뉴를 추천해 주세요.
 
 #### 13. Dashboard, Traces, Sessions 메뉴를 클릭하며 각 기능을 살펴봅니다.
 
-### 📍 실습 Part 3
+## 📍 실습 Part 3
 
 
 #### 14. 앞서 기록한 Credential 정보와 Agent Engine 의 Resource Name을 Makefile에 업데이트 합니다.
@@ -252,4 +253,5 @@ Authorize 버튼을 클릭해 접근 권한을 부여합니다.
 ![image](https://raw.githubusercontent.com/cheeunlim/agent-engine-lab/main/images/google_cal.png)
 <br>
 
-### 🏁 실습 완료! 
+<br>
+## 🏁 실습 완료! 
