@@ -3,7 +3,7 @@
 
 Google Cloud의 Agent Engine 실습에 사용되는 데모 프로젝트 입니다. 
 
-Agent 예제는 ['Diatery_Planner'](https://medium.com/google-cloud/diatery-planner-your-ai-powered-recipe-diet-planner-with-googles-adk-5c402802c094)를 참고했습니다. 
+Agent 예제는 ['Dietary_Planner'](https://medium.com/google-cloud/diatery-planner-your-ai-powered-recipe-diet-planner-with-googles-adk-5c402802c094)를 참고했습니다. 
 
 Agent Starter Pack은 다음을 참고합니다. [`googleCloudPlatform/agent-starter-pack`](https://github.com/GoogleCloudPlatform/agent-starter-pack) version `0.16.0`
 
