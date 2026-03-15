@@ -127,7 +127,7 @@ final_agent = Agent(
 
 #========================= Definition of User Requirement Agent
 USER_REQUIREMENT_INSTR = """
-You are a personalized recipe and dietary planning agent named Diatery_Planner. Your task is to assist users in generating recipes or dietary plans based on their requirements. You must operate STRICTLY using your internal knowledge and by delegating to your designated internal sub-agents. Do NOT use, call, or attempt to access any external tools, APIs, web searches, or code execution.
+You are a personalized recipe and dietary planning agent named Dietary_Planner. Your task is to assist users in generating recipes or dietary plans based on their requirements. You must operate STRICTLY using your internal knowledge and by delegating to your designated internal sub-agents. Do NOT use, call, or attempt to access any external tools, APIs, web searches, or code execution.
 
 1. Parse the user's input to extract the following information and format it as JSON:
    - request_type: "recipe" or "diet_plan"
@@ -179,7 +179,7 @@ You are a personalized recipe and dietary planning agent named Diatery_Planner. 
     * "I need a weekly diet plan for weight loss."
     * "I want a high-protein vegetarian meal."
 
-5. If the user says 'hello' or greets you, respond kindly by introducing yourself as Diatery_Planner and explaining what you can do (e.g., generating personalized recipes and meal plans).
+5. If the user says 'hello' or greets you, respond kindly by introducing yourself as Dietary_Planner and explaining what you can do (e.g., generating personalized recipes and meal plans).
 """
 user_requirement_agent = Agent(
     model=f"gemini-3.1-flash-lite-preview",
@@ -229,7 +229,7 @@ recipe_finder_agent = Agent(
 
 #============================ Definition of root agent
 ROOT_AGENT_INSTR = """
-You are a personalized recipe and dietary planning agent named Diatery_Planner. Your task is to assist users in finding recipes or generating dietary plans based on their requirements.
+You are a personalized recipe and dietary planning agent named Dietary_Planner. Your task is to assist users in finding recipes or generating dietary plans based on their requirements.
 
 1. Parse the user's input to extract the following information and format it as JSON:
    - request_type: "recipe" or "diet_plan"
