@@ -60,6 +60,15 @@ ge-register:
 		"https://$(GEMINI_ENTERPRISE_REGION)-discoveryengine.googleapis.com/v1alpha/projects/$(PROJECT_ID)/locations/$(GEMINI_ENTERPRISE_REGION)/collections/default_collection/engines/$(GEMINI_ENTERPRISE_APP_ID)/assistants/default_assistant/agents" \
 		-d '{"displayName": "Dietary Planner", "description": "Healthy life", "adk_agent_definition": { "provisioned_reasoning_engine": { "reasoning_engine": "$(AGENT_ENGINE_RESOURCE_NAME)" } }, "authorization_config": {"tool_authorizations": ["projects/$(PROJECT_NUMBER)/locations/$(GEMINI_ENTERPRISE_REGION)/authorizations/$(AUTH_ID_TO_USE)"]}}'
 
+ge-delete:
+    $(eval PROJECT_ID := $(shell gcloud config get-value project))
+    $(eval ACCESS_TOKEN := $(shell gcloud auth print-access-token))
+    @echo "기존 Authorizations 삭제 중..."
+    curl -X DELETE \
+        -H "Authorization: Bearer $(ACCESS_TOKEN)" \
+        -H "X-Goog-User-Project: $(PROJECT_ID)" \
+        "https://$(GEMINI_ENTERPRISE_REGION)-discoveryengine.googleapis.com/v1alpha/projects/$(PROJECT_ID)/locations/$(GEMINI_ENTERPRISE_REGION)/authorizations/$(AUTH_ID_TO_USE)"
+
 # ==============================================================================
 # Infrastructure Setup
 # ==============================================================================
