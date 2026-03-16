@@ -77,7 +77,7 @@ agent-starter-pack setup-cicd --cicd-project [CI/CD 를 수행할 프로젝트ID
 
 ## 📍 실습 Part 1
 
-아래 내용은 Qwiklab 환경에서 본 프로젝트를 배포하고 실행하는 과정을 설명합니다.
+아래 내용은 Qwiklab 환경을 통해 구성한 Google Cloud의 Vertex AI Workbench에서 실습을 진행하는 방법을 다루고 있습니다.
 
 #### 1. 상단 검색 메뉴에서 'workbench' 를 입력하여 'Workbench' 메뉴를 클릭합니다.
 ![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/1.png)
@@ -97,6 +97,44 @@ pip install uv
 cd agent-engine-lab
 make backend
 ```
+
+## 📍 실습 Part 2
+
+#### 9. Google Cloud 콘솔의 좌측 메뉴에서 Agent Engine 을 클릭합니다.
+
+![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/3.png)
+***
+<br>
+
+#### 10. 배포된 Agent Engine 을 확인 후 Resource name을 복사해 메모장에 기록하고, Agent를 클릭합니다.
+
+![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/5.png)
+***
+<br>
+
+#### 11. Playground 메뉴에 들어가서 다양한 대화를 해봅니다.
+
+Session 1 예시: 근량 증가를 위한 저녁 메뉴를 추천해주세요.
+
+Session 2 예시: 저는 채식주의자 입니다.
+
+Session 3 예시: 소고기 메뉴를 추천해 주세요. 
+
+(기대결과: 채식주의자라고 말씀해주셨기 때문에 이에 맞는 메뉴로 추천드립니다.)
+
+![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/6.png)
+***
+<br>
+
+#### 12. 다양한 대화를 수행해본 후 Memories 메뉴에 접속하여 발화 내용이 메모리에 추가되었는지 확인합니다.
+
+![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/7.png)
+***
+<br>
+
+#### 13. Dashboard, Traces, Sessions 메뉴를 클릭하며 각 기능을 살펴봅니다.
+
+## 📍 실습 Part 3
 
 #### 4. Google Cloud 콘솔 검색 메뉴에서 "credentials" 혹은 "oauth" 를 검색하면 나오는 Credentials 를 클릭합니다.
 ![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/8.png)
@@ -139,7 +177,7 @@ Gemini Enterprise 메뉴의 Settings 로 진입하여 Authentication settings �
 
 #### 7. Calendar 데이터 스토어 생성
 Apps를 클릭 후 기 생성돼 있는 agent-portal 을 클릭합니다. 
-Connected data stores 를 클릭한 후, New data store > Google Calendar 를 클릭합니다.
+Connected data stores 를 클릭한 후, New data store > Google Drive 를 클릭합니다.
 
 ![image](https://raw.githubusercontent.com/cheeunlim/agent-engine-lab/main/images/cal_connector.png)
 ***
@@ -155,44 +193,6 @@ Connected data stores 를 클릭한 후, New data store > Google Calendar 를 �
 ![image](https://raw.githubusercontent.com/cheeunlim/agent-engine-lab/main/images/cal_connector_created.png)
 ***
 <br>
-
-## 📍 실습 Part 2
-
-#### 9. Google Cloud 콘솔의 좌측 메뉴에서 Agent Engine 을 클릭합니다.
-
-![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/3.png)
-***
-<br>
-
-#### 10. 배포된 Agent Engine 을 확인 후 Resource name을 복사해 메모장에 기록하고, Agent를 클릭합니다.
-
-![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/5.png)
-***
-<br>
-
-#### 11. Playground 메뉴에 들어가서 다양한 대화를 해봅니다.
-
-Session 1 예시: 근량 증가를 위한 저녁 메뉴를 추천해주세요.
-
-Session 2 예시: 저는 채식주의자 입니다.
-
-Session 3 예시: 소고기 메뉴를 추천해 주세요. 
-
-(기대결과: 채식주의자라고 말씀해주셨기 때문에 이에 맞는 메뉴로 추천드립니다.)
-
-![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/6.png)
-***
-<br>
-
-#### 12. 다양한 대화를 수행해본 후 Memories 메뉴에 접속하여 발화 내용이 메모리에 추가되었는지 확인합니다.
-
-![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/7.png)
-***
-<br>
-
-#### 13. Dashboard, Traces, Sessions 메뉴를 클릭하며 각 기능을 살펴봅니다.
-
-## 📍 실습 Part 3
 
 
 #### 14. 앞서 기록한 Credential 정보와 Agent Engine 의 Resource Name을 Makefile에 업데이트 합니다.
