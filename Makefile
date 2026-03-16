@@ -46,7 +46,7 @@ ge-register:
 	$(eval ACCESS_TOKEN := $(shell gcloud auth print-access-token))
 
 	@echo "기존 Agent ID를 가져오는 중..."; \
-	AGENT_ID=$$(curl -s -H "Authorization: Bearer $(ACCESS_TOKEN)" -H "Content-Type: application/json" -H "X-Goog-User-Project: $(PROJECT_ID)" "https://${GEMINI_ENTERPRISE_REGION}-discoveryengine.googleapis.com/v1alpha/projects/${PROJECT_ID}/locations/${GEMINI_ENTERPRISE_REGION}/collections/default_collection/engines/${GEMINI_ENTERPRISE_APP_ID}/assistants/default_assistant/agents" | jq -r '.agents[] | select(.displayName == "Dietary Planner2") | .name | split("/") | last'); \
+	AGENT_ID=$$(curl -s -H "Authorization: Bearer $(ACCESS_TOKEN)" -H "Content-Type: application/json" -H "X-Goog-User-Project: $(PROJECT_ID)" "https://${GEMINI_ENTERPRISE_REGION}-discoveryengine.googleapis.com/v1alpha/projects/${PROJECT_ID}/locations/${GEMINI_ENTERPRISE_REGION}/collections/default_collection/engines/${GEMINI_ENTERPRISE_APP_ID}/assistants/default_assistant/agents" | jq -r '.agents[] | select(.displayName == "Dietary Planner") | .name | split("/") | last'); \
     echo "추출된 Agent ID: $$AGENT_ID"; \
 	if [ -n "$$AGENT_ID" ] && [ "$$AGENT_ID" != "null" ]; then \
 		echo "추출된 Agent ID ($$AGENT_ID)를 찾았습니다. 삭제를 진행합니다."; \
