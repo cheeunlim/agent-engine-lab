@@ -84,7 +84,10 @@ agent-starter-pack setup-cicd --cicd-project [CI/CD 를 수행할 프로젝트ID
 ***
 <br>
 
-#### 2. Workbench의 터미널에 진입 후 아래의 명령어로 실습자료를 다운로드 받습니다.
+#### 2. 'Open Jupyterlab' 버튼을 눌러 환경에 접속합니다.
+![image](https://raw.githubusercontent.com/cheeunlim/agent-engine-lab/main/images/workbench_open.png)
+
+실행된 창에서 Terminal에 진입 후 아래 명령어로 실습자료를 다운로드 받습니다.
 
 ```
 git clone https://github.com/cheeunlim/agent-engine-lab
@@ -97,6 +100,10 @@ pip install uv
 cd agent-engine-lab
 make backend
 ```
+<br>
+
+#### 🚨 **배포가 완료될 때까지 10여분의 시간이 소요됩니다.** 
+<br>
 
 ## 📍 실습 Part 2
 
