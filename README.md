@@ -204,7 +204,7 @@ Connected data stores 를 클릭한 후, New data store > Google Drive 를 클�
 
 #### 14. 앞서 기록한 Credential 정보와 Agent Engine 의 Resource Name을 Makefile에 업데이트 합니다.
 
-Jupyter Lab 에서 /agent-engine-test/Makefile 을 열어 아래 정보를 확인 후 기록해둔 값으로 업데이트 합니다.
+Jupyter Lab 에서 /agent-engine-lab/Makefile 을 열어 아래 정보를 확인 후 기록해둔 값으로 업데이트 합니다.
 
 ```
 CLIENT_ID := CLIENT_ID
