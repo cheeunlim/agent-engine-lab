@@ -56,7 +56,7 @@ make backend
 
 
 #### 🚨 **배포가 완료될 때까지 10여분의 시간이 소요됩니다.**
-**대기 후 아래 화면과 같은 에이전트 배포 완료 메시지를 확인합니다** 
+대기 후 아래 화면과 같은 에이전트 배포 완료 메시지를 확인합니다. 
 
 ![image](https://raw.githubusercontent.com/cheeunlim/agent-engine-lab/main/images/agent_deployed.png)
 
