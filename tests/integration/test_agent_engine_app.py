@@ -1,4 +1,4 @@
-# Copyright 2025 Google LLC
+# Copyright 2026 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,16 +17,19 @@ import logging
 import pytest
 from google.adk.events.event import Event
 
-from app.agent import root_agent
 from app.agent_engine_app import AgentEngineApp
 
 
 @pytest.fixture
-def agent_app() -> AgentEngineApp:
+def agent_app(monkeypatch: pytest.MonkeyPatch) -> AgentEngineApp:
     """Fixture to create and set up AgentEngineApp instance"""
-    app = AgentEngineApp(agent=root_agent)
-    app.set_up()
-    return app
+    # Set integration test flag to mock external services
+    monkeypatch.setenv("INTEGRATION_TEST", "TRUE")
+
+    from app.agent_engine_app import agent_engine
+
+    agent_engine.set_up()
+    return agent_engine
 
 
 @pytest.mark.asyncio
@@ -36,7 +39,7 @@ async def test_agent_stream_query(agent_app: AgentEngineApp) -> None:
     Tests that the agent returns valid streaming responses.
     """
     # Create message and events for the async_stream_query
-    message = "What's the weather in San Francisco?"
+    message = "Hi!"
     events = []
     async for event in agent_app.async_stream_query(message=message, user_id="test"):
         events.append(event)
@@ -66,7 +69,8 @@ def test_agent_feedback(agent_app: AgentEngineApp) -> None:
     feedback_data = {
         "score": 5,
         "text": "Great response!",
-        "invocation_id": "test-run-123",
+        "user_id": "test-user-456",
+        "session_id": "test-session-456",
     }
 
     # Should not raise any exceptions
@@ -77,7 +81,8 @@ def test_agent_feedback(agent_app: AgentEngineApp) -> None:
         invalid_feedback = {
             "score": "invalid",  # Score must be numeric
             "text": "Bad feedback",
-            "invocation_id": "test-run-123",
+            "user_id": "test-user-789",
+            "session_id": "test-session-789",
         }
         agent_app.register_feedback(invalid_feedback)
 

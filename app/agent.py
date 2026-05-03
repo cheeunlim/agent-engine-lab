@@ -1,4 +1,5 @@
-# Copyright 2025 Google LLC
+# ruff: noqa
+# Copyright 2026 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,34 +13,32 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import datetime
+
 from google.adk.agents import Agent
+from google.adk.apps import App
+from google.adk.models import Gemini
+from google.genai import types
+
 from google.adk.tools.preload_memory_tool import preload_memory_tool
 
 from google.adk.tools import FunctionTool, ToolContext
-import uuid
-import re
+
 import tempfile
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
-import os
-from google.genai import types
-from datetime import datetime
+import uuid
 
+import os
+import google.auth
+
+_, project_id = google.auth.default()
+os.environ["GOOGLE_CLOUD_PROJECT"] = project_id
 os.environ["GOOGLE_CLOUD_LOCATION"] = "global"
 os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "True"
 
 AGENT_AUTH_ID = "dietary_planner"
-
-retry_config = types.GenerateContentConfig(
-        http_options=types.HttpOptions(
-            retry_options=types.HttpRetryOptions(
-                attempts=5,           # 최대 재시도 횟수
-                initial_delay=1.0,    # 첫 대기 시간
-                http_status_codes=[429, 500, 502, 503, 504] # 재시도 대상 에러 코드
-            )
-        )
-    )
 
 def get_access_token(tool_context: ToolContext, auth_id: str) -> str | None:
     #Find value of matched key
@@ -116,14 +115,16 @@ Output format:
 - Answer using user language.
 """
 final_agent = Agent(
-    model=f"gemini-3.1-flash-lite-preview",
-    generate_content_config=retry_config,
     name="final_agent",
+    model=Gemini(
+        model="gemini-3.1-flash-lite-preview",
+        retry_options=types.HttpRetryOptions(attempts=3),
+    ),
     description="Agent to validate and finalize the recipe or dietary plan output",
     instruction=FINAL_INSTR,
     tools=[
         preload_memory_tool
-    ]
+    ],
 )
 
 #========================= Definition of User Requirement Agent
@@ -183,16 +184,17 @@ You are a personalized recipe and dietary planning agent named Dietary_Planner. 
 5. If the user says 'hello' or greets you, respond kindly by introducing yourself as Dietary_Planner and explaining what you can do (e.g., generating personalized recipes and meal plans).
 """
 user_requirement_agent = Agent(
-    model=f"gemini-3.1-flash-lite-preview",
-    generate_content_config=retry_config,
     name="user_requirement_agent",
+    model=Gemini(
+        model="gemini-3.1-flash-lite-preview",
+        retry_options=types.HttpRetryOptions(attempts=3),
+    ),
     description="Agent to gather user dietary preferences and constraints",
     instruction=USER_REQUIREMENT_INSTR,
     tools=[
         preload_memory_tool
-    ]
+    ],
 )
-
 
 #========================= Definition of Recipe generator Agent
 RECIPE_GENERATOR_INSTR = """
@@ -218,9 +220,11 @@ Output format:
 - Answer using the user's language.
 """
 recipe_finder_agent = Agent(
-    model=f"gemini-3.1-flash-lite-preview",
-    generate_content_config=retry_config,
     name="recipe_generator_agent",
+    model=Gemini(
+        model="gemini-3.1-flash-lite-preview",
+        retry_options=types.HttpRetryOptions(attempts=3),
+    ),
     description="Agent to generate recipes or generate meal plans by user request",
     instruction=RECIPE_GENERATOR_INSTR,
     tools=[
@@ -293,8 +297,10 @@ Answer using user language.
 """
 root_agent = Agent(
     name="root_agent",
-    generate_content_config=retry_config,
-    model=f"gemini-3.1-flash-lite-preview",
+    model=Gemini(
+        model="gemini-3.1-flash-lite-preview",
+        retry_options=types.HttpRetryOptions(attempts=3),
+    ),
     description="A personalized recipe and dietary planning agent. Use 'upload_text_to_drive' to save the result",
     instruction=ROOT_AGENT_INSTR,
     sub_agents=[
@@ -307,4 +313,9 @@ root_agent = Agent(
         FunctionTool(upload_text_to_drive)
         
     ]
+)
+
+app = App(
+    root_agent=root_agent,
+    name="app",
 )
