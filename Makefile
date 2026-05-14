@@ -96,10 +96,10 @@ lint:
 CLIENT_ID := CLIENT_ID
 CLIENT_SECRET := SECRET
 AGENT_ENGINE_RESOURCE_NAME := FULL_RESOURCE_NAME
+GEMINI_ENTERPRISE_APP_ID := APPLICATION_ID
 
 AUTH_ID_TO_USE := dietary_planner
 GEMINI_ENTERPRISE_REGION := global
-GEMINI_ENTERPRISE_APP_ID := agent-portal
 
 ge-register:
 	$(eval PROJECT_ID := $(shell gcloud config get-value project))
