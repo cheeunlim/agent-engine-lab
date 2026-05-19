@@ -117,7 +117,7 @@ Output format:
 final_agent = Agent(
     name="final_agent",
     model=Gemini(
-        model="gemini-3.1-flash-lite-preview",
+        model="gemini-3.1-flash-lite",
         retry_options=types.HttpRetryOptions(attempts=3),
     ),
     description="Agent to validate and finalize the recipe or dietary plan output",
@@ -186,7 +186,7 @@ You are a personalized recipe and dietary planning agent named Dietary_Planner. 
 user_requirement_agent = Agent(
     name="user_requirement_agent",
     model=Gemini(
-        model="gemini-3.1-flash-lite-preview",
+        model="gemini-3.1-flash-lite",
         retry_options=types.HttpRetryOptions(attempts=3),
     ),
     description="Agent to gather user dietary preferences and constraints",
@@ -222,7 +222,7 @@ Output format:
 recipe_finder_agent = Agent(
     name="recipe_generator_agent",
     model=Gemini(
-        model="gemini-3.1-flash-lite-preview",
+        model="gemini-3.1-flash-lite",
         retry_options=types.HttpRetryOptions(attempts=3),
     ),
     description="Agent to generate recipes or generate meal plans by user request",
@@ -298,7 +298,7 @@ Answer using user language.
 root_agent = Agent(
     name="root_agent",
     model=Gemini(
-        model="gemini-3.1-flash-lite-preview",
+        model="gemini-3.1-flash-lite",
         retry_options=types.HttpRetryOptions(attempts=3),
     ),
     description="A personalized recipe and dietary planning agent. Use 'upload_text_to_drive' to save the result",
