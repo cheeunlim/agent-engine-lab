@@ -178,6 +178,18 @@ Authorize 버튼을 클릭한 후, 사용자의 Google Drive에 접근 권한을
 
 ![image](https://raw.githubusercontent.com/cheeunlim/agent-engine-lab/main/images/drive_recipe.png)
 
+## Optional - Agent Evaluation
+#### 18. Jupyter lab 폴더에서 /agent-engine-lab/notebooks/agentengine_eval.ipynb 를 클릭합니다.
+
+#### 19. 세번째 셀에 AGENT_ENGINE_ID "00000000000" 으로 되어있는 부분을 메모한 Agent Engine ID 로 변경합니다.
+
+![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/4.png)
+***
+<br>
+
+#### 20. Agentengine_eval.ipynb 셀들을 실행, 결과를 확인합니다.
+
+
 ## 🏁 Qwiklab 실습 완료!
 
 <br>
