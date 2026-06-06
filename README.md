@@ -62,8 +62,6 @@ make deploy
 
 Create App 을 클릭 후 App name에 'agent-portal'을 입력 후 Create 버튼을 클릭합니다.
 
-아래 그림과 같이 ID 값을 복사 후 메모장에 기록합니다.
-
 ![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/20.png)
 
 
@@ -81,11 +79,7 @@ Gemini Enterprise 메뉴의 좌측 Settings 로 진입하여 Authentication sett
 ![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/19.png)
 
 
-#### 7. 배포된 Agent Runtime 을 확인 후 Resource name을 복사해 메모장에 기록하고, Agent를 클릭합니다.
-
-![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/5.png)
-
-#### 8. Playground 메뉴에 들어가서 다양한 대화를 해봅니다.
+#### 7. Playground 메뉴에 들어가서 다양한 대화를 해봅니다.
 
 Session 1 예시: 근량 증가를 위한 저녁 메뉴를 추천해주세요.
 
@@ -98,19 +92,19 @@ Session 3 예시: 소고기 메뉴를 추천해 주세요.
 ![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/6.png)
 
 
-#### 9. 다양한 대화를 수행해본 후 Memories 메뉴에 접속하여 발화 내용이 메모리에 추가되었는지 확인합니다.
+#### 8. 다양한 대화를 수행해본 후 Memories 메뉴에 접속하여 발화 내용이 메모리에 추가되었는지 확인합니다.
 
 ![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/7.png)
 
 
 
-#### 10. Dashboard, Traces, Sessions 메뉴를 클릭하며 각 기능을 살펴봅니다.
+#### 9. Dashboard, Traces, Sessions 메뉴를 클릭하며 각 기능을 살펴봅니다.
 
 <br>
 
 ## 📍 실습 Part 3
 
-#### 11. Google Cloud 콘솔 검색 메뉴에서 "credentials" 혹은 "oauth" 를 검색하면 나오는 Credentials 를 클릭합니다.
+#### 10. Google Cloud 콘솔 검색 메뉴에서 "credentials" 혹은 "oauth" 를 검색하면 나오는 Credentials 를 클릭합니다.
 ![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/8.png)
 
 
@@ -135,34 +129,32 @@ https://vertexaisearch.cloud.google.com/oauth-redirect
 팝업 창의 CLIENT_ID, CLIENT_SECRET 값을 따로 메모장에 기록하거나, Download JSON을 클릭해 파일로 저장합니다.
 
 
-#### 12. 기록한 Credential 정보와 Agent Runtime 의 Resource Name, Gemini Enterprise Application ID를 Makefile에 업데이트 합니다.
+#### 11. 기록한 Credential 정보와 Agent Runtime 의 Resource Name, Gemini Enterprise Application ID를 Makefile에 업데이트 합니다.
 
 Jupyter Lab 환경으로 돌아와 /agent-engine-lab/Makefile 을 열어 아래 정보를 확인 후 기록해둔 값으로 업데이트 합니다.
 
 ```
 CLIENT_ID := CLIENT_ID
 CLIENT_SECRET := SECRET
-AGENT_ENGINE_RESOURCE_NAME := FULL_RESOURCE_NAME
-GEMINI_ENTERPRISE_APP_ID := APPLICATION_ID
 ```
 
-#### 13. Jupyter Lab 의 Terminal 로 돌아와 아래의 명령어를 실행하여 에이전트를 Gemini Enterprise에 등록합니다.
+#### 12. Jupyter Lab 의 Terminal 로 돌아와 아래의 명령어를 실행하여 에이전트를 Gemini Enterprise에 등록합니다.
 
 ```
 make ge-register
 ```
 
-#### 14. Google Cloud 콘솔에서 Gemini Enterprise 를 검색 후 메뉴로 진입합니다.
+#### 13. Google Cloud 콘솔에서 Gemini Enterprise 를 검색 후 메뉴로 진입합니다.
 
 ![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/11.png)
 
 
-#### 15. Gemini Enterprise 를 실행합니다.
+#### 14. Gemini Enterprise 를 실행합니다.
 
 ![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/14.png)
 
 
-#### 16. GE 메뉴에서 에이전트를 클릭, 에이전트와 대화합니다.
+#### 15. GE 메뉴에서 에이전트를 클릭, 에이전트와 대화합니다.
 
 ![image](https://raw.githubusercontent.com/cheeunlim/agent-engine-lab/main/images/agent.png)
 
@@ -174,20 +166,14 @@ Authorize 버튼을 클릭한 후, 사용자의 Google Drive에 접근 권한을
 
 ![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/17.png)
 
-#### 17. 구글 드라이브(https://drive.google.com) 에 접속하여 파일이 생성됐는지 확인합니다.
+#### 16. 구글 드라이브(https://drive.google.com) 에 접속하여 파일이 생성됐는지 확인합니다.
 
 ![image](https://raw.githubusercontent.com/cheeunlim/agent-engine-lab/main/images/drive_recipe.png)
 
 ## Optional - Agent Evaluation
-#### 18. Jupyter lab 폴더에서 /agent-engine-lab/notebooks/agentengine_eval.ipynb 를 클릭합니다.
+#### 17. Jupyter lab 폴더에서 /agent-engine-lab/notebooks/agentengine_eval.ipynb 를 클릭합니다.
 
-#### 19. 세번째 셀에 AGENT_ENGINE_ID "00000000000" 으로 되어있는 부분을 메모한 Agent Engine ID 로 변경합니다.
-
-![image](https://raw.githubusercontent.com/jk1333/handson/main/images/6/4.png)
-***
-<br>
-
-#### 20. Agentengine_eval.ipynb 셀들을 실행, 결과를 확인합니다.
+#### 18. Agentengine_eval.ipynb 셀들을 실행, 결과를 확인합니다.
 
 
 ## 🏁 Qwiklab 실습 완료!
